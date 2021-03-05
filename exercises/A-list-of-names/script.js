@@ -1,5 +1,9 @@
 function listOfNames(arrayOfPeople) {
   let content = document.querySelector("#content");
+  for(let person of arrayOfPeople){
+  content.appendChild(document.createElement("h1")).textContent=person.name;
+  content.appendChild(document.createElement("h2")).textContent=person.job;
+}
 }
 
 let people = [
@@ -8,4 +12,4 @@ let people = [
   { name: "Boris", job: "Prime Minister" },
 ];
 
-listOfNames(people);
+console.log(listOfNames(people));
