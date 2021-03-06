@@ -5,20 +5,14 @@ function todoList(todos) {
 
   for (let aTask of todos) {
     let listEl = document.createElement("li");
-    // listEl.classList.add("classShoppingList");
     unorderedList.appendChild(listEl).textContent = aTask.todo;
   }
   
-
+  // callback to be triggered when the list elements are clicked on
   let strikeToggler = function (e) {
-    if (e.target.style.textDecoration === "line-through") {
-      e.target.style.textDecoration = "none";
-    }
-    else {
-      e.target.style.textDecoration = "line-through";
-    }
-
+    e.target.classList.toggle("adderClass");// the adderClass css 
   };
+  // make use of event bubling where the <ul> listens the event on behalf of its children i.e <li>
   unorderedList.addEventListener("click", strikeToggler);
   
 }
