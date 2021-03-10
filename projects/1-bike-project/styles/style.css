@@ -88,6 +88,10 @@ body {
 	max-width: 100px;
 	background: #ce5f31;
 }
+/* form */
+.make-red{
+	background-color: red;
+}
 
 /* Article */
 .article {
