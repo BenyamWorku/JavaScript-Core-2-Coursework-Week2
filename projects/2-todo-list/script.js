@@ -11,43 +11,12 @@ document.getElementById("content")
   .querySelector(".container")
   .querySelector(".row")
   .querySelector(".col-sm").appendChild(ulTag)
-
+let inputEl = document.querySelector("input");
 
 
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 
 
-// populating 
-// for (let [i, chore] of todos.entries()) {
-//   console.log(ulTag);
-
-//   let liTag = document.createElement("li");
-//   liTag.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
-//   liTag.appendChild(document.createTextNode(chore.task));
-
-//   let spanTag = document.createElement("span");
-//   spanTag.classList.add("badge", "bg-primary", "rounded-pill");
-//   liTag.appendChild(spanTag);
-
-//   let idiomCheckTag = document.createElement("i");
-//   idiomCheckTag.classList.add("fa", "fa-check","spacer");
-//   idiomCheckTag.setAttribute("aria-hidden", "false")
-
-//   let idiomTrashTag = document.createElement("i");
-//   idiomTrashTag.classList.add("fa", "fa-trash","spacer");
-//   idiomTrashTag.setAttribute("aria-hidden", "false");
-
-//   spanTag.appendChild(idiomCheckTag);
-//   spanTag.appendChild(idiomTrashTag);
-
-//   ulTag.appendChild(liTag);
-
-
-// }
-
-function framework() {
-  
-}
 function populateTodoList(todos) {
   for (let [i, chore] of todos.entries()) {
     console.log(ulTag);
@@ -78,21 +47,46 @@ function populateTodoList(todos) {
 
 populateTodoList(todos);
 
+function createListElement() {
+  let liTag = document.createElement("li");
+  liTag.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+  liTag.appendChild(document.createTextNode(inputEl.value));
+
+  let spanTag = document.createElement("span");
+  spanTag.classList.add("badge", "bg-primary", "rounded-pill");
+  liTag.appendChild(spanTag);
+
+  let idiomCheckTag = document.createElement("i");
+  idiomCheckTag.classList.add("fa", "fa-check", "spacer");
+  idiomCheckTag.setAttribute("aria-hidden", "false")
+
+  let idiomTrashTag = document.createElement("i");
+  idiomTrashTag.classList.add("fa", "fa-trash", "spacer");
+  idiomTrashTag.setAttribute("aria-hidden", "false");
+
+  spanTag.appendChild(idiomCheckTag);
+  spanTag.appendChild(idiomTrashTag);
+
+  ulTag.appendChild(liTag);
+
+}
+
 // console.log(ulTag.tagName);
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
-  let inputEl = document.querySelector("input");
+  
   let newTask = { task: inputEl.value, completed: false };
   if (inputEl.value.length > 0) {
     // console.log(inputEl.value);
     todos.push(newTask);
+    createListElement();
   }
   // populateTodoList(newTask);
   inputEl.value = "";
   console.log(todos);
-  populateTodoList(todos);
+
   console.log(todos);
 
 }
