@@ -1,8 +1,8 @@
 function listOfNames(arrayOfPeople) {
   let content = document.querySelector("#content");
   for(let person of arrayOfPeople){
-  content.appendChild(document.createElement("h1")).textContent=person.name;
-  content.appendChild(document.createElement("h2")).textContent=person.job;
+  content.appendChild(document.createElement("h1")).innerText=person.name;
+  content.appendChild(document.createElement("h2")).innerText=person.job;
 }
 }
 

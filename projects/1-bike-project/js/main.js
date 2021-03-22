@@ -1,14 +1,9 @@
 
 let btnEls = document.querySelectorAll(".colorButton");
-
+let jumbotronEl = document.querySelector(".jumbotron");
+let jumbotronBtnEl = document.getElementsByClassName("buttons")[0];
 var applyColour = function (e) {
-    let jumbotronEl = document.querySelector(".jumbotron");
-    let jumbotronBtnEl = document.getElementsByClassName("buttons")[0];
-
-    console.log(jumbotronBtnEl.firstElementChild.nodeName);
-    // firstElementChild returns the first child node as an element node (ignores text and comment nodes)
-    //-----------------------------------------------
-
+    
     let colorOfButton = e.target;
     if (colorOfButton.id === "blueBtn") {
         jumbotronEl.style.backgroundColor = `#588fbd`;
@@ -32,12 +27,11 @@ var applyColour = function (e) {
 
 for (btn of btnEls) { btn.addEventListener("click", applyColour); }
 
-// form validation section
+
 let formEl = document.getElementsByTagName("form")[0];
 formEl.id = "formId"; // assign id to a form element 
-document.forms.id = "formId"; // assign id to a form element
 
-console.log(formEl.firstElementChild.firstElementChild.textContent);
+
 
 let inputEls = document.querySelectorAll("input");
 let textAreaEl = document.querySelector("textarea");
@@ -54,8 +48,7 @@ function validator(e) {
         let inputType = anInput.getAttribute("type");
         if (anInput.value.length != 0) {
             if (inputType === "email") {
-                // console.log(anInput.value.split("").includes("@"));
-                if (!anInput.value.split("").includes("@")) {
+                if (!anInput.value.includes("@")) {
                     errorFlag = true;
                     anInput.classList.add("make-red");
                 }

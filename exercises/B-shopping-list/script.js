@@ -1,10 +1,15 @@
 function shoppingList(arrayofGroceries) {
   let content = document.querySelector("#content");
   let listEl = document.createElement("ul");
-  content.appendChild(listEl);
+ 
   for (let item of arrayofGroceries) {
-    listEl.appendChild(document.createElement("li")).textContent=item;
+    let shoppingListElem = document.createElement("li")
+    shoppingListElem.innerText = item;
+    listEl.appendChild(shoppingListElem);
+
   }
+  console.log(listEl);
+  content.append(listEl);
 
 }
 

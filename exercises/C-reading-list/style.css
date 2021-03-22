@@ -37,6 +37,20 @@ body {
 .btn {
   border-radius: 0.15em;
 }
+.class-list{
+width:50vw;
+height:30vh;
+}
+
+.class-text{
+padding:20px;
+}
+
+.class-image {
+height:130px;
+width:70px;
+padding:5px;
+}
 
 /* Alert */
 .alert {
